@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { GoDotFill } from 'react-icons/go';
 
+//P.S. Works best if wrapped arn a div for option position + margin
+
 export default function Carousel({ images }) {
   const [imgIndex, setImgIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -32,12 +34,25 @@ export default function Carousel({ images }) {
   }, []);
 
   return (
-    <Carousel.Container onHover={handleHover}>
-      <Carousel.CurrentImage images={images} imgIndex={imgIndex} />
-      <Carousel.Arrow position="left" onClick={handleClick} />
-      <Carousel.Arrow position="right" onClick={handleClick} />
-      <Carousel.Dots images={images} imgIndex={imgIndex} />
-    </Carousel.Container>
+    <Carousel.Responsive>
+      <Carousel.Container onHover={handleHover}>
+        <Carousel.CurrentImage images={images} imgIndex={imgIndex} />
+        <Carousel.Arrow position="left" onClick={handleClick} />
+        <Carousel.Arrow position="right" onClick={handleClick} />
+        <Carousel.Dots images={images} imgIndex={imgIndex} />
+      </Carousel.Container>
+    </Carousel.Responsive>
+  );
+}
+
+// div for responsive styling purpose only
+function Responsive({ children }) {
+  return (
+    <div
+      className={`h-[60vw] w-full sm:m-5 sm:h-[55vw] sm:w-11/12 md:m-7 md:h-[50vw] md:w-5/6 lg:m-9 lg:h-[45vw] lg:w-3/4`}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -45,7 +60,7 @@ function Container({ children, onHover }) {
   return (
     <div
       // POSITION RELATIVE to act as reference for the absolutely positioned elements
-      className="relative flex h-[60vw] w-full items-center justify-center"
+      className="relative flex h-full w-full items-center justify-center "
       onMouseEnter={() => onHover(true)}
       onMouseLeave={() => onHover(false)}
     >
@@ -84,6 +99,7 @@ function Dots({ images, imgIndex }) {
   );
 }
 
+Carousel.Responsive = Responsive;
 Carousel.Container = Container;
 Carousel.CurrentImage = CurrentImage;
 Carousel.Arrow = Arrow;

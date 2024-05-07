@@ -22,12 +22,12 @@ export default {
       },
       // prettier-ignore
       screens: {
-      'xs': '27rem',
-      'sm': '40rem',
-      'md': '48rem',
-      'lg': '64rem',
-      'xl': '80rem',
-      '2xl': '96rem',
+      'xs': '27rem', //432px
+      'sm': '40rem', //640
+      'md': '48rem', //768
+      'lg': '64rem', //1024
+      'xl': '80rem', //1280
+      '2xl': '96rem', //1536
     },
       //
     },

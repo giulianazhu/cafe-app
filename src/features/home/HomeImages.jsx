@@ -10,7 +10,11 @@ function HomeImages() {
   if (isError) return <Error> {error.message} </Error>;
 
   // return <ImageSlider images={homeImages} />;
-  return <Carousel images={homeImages} />;
+  return (
+    <div className="flex justify-center">
+      <Carousel images={homeImages} />
+    </div>
+  );
 }
 
 export default HomeImages;
