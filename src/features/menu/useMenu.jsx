@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getMenu } from '../../services/apiClients';
+import { getMenu } from '../../services/apiMenu';
 
 function useMenu() {
   const {
@@ -11,7 +11,6 @@ function useMenu() {
     queryKey: ['menu'],
     queryFn: getMenu,
   });
-  console.log(menu);
   return { isLoading, isError, error, menu };
 }
 

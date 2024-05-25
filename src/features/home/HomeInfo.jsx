@@ -7,13 +7,12 @@ function HomeInfo() {
 
   if (isLoading) return <Loader />;
   if (isError) return <Error> {error.message} </Error>;
-  console.log(info);
 
   return (
     <main className="divide-y-2 divide-stone-500 px-3 pb-3 text-center">
       {info.map((section) => (
         <Section key={section.id}>
-          <Headline>{section.title}}</Headline>
+          <Headline>{section.title}</Headline>
           <p>{section.content}</p>
         </Section>
       ))}

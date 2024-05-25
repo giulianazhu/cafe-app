@@ -1,4 +1,4 @@
-import MenuItem from './MenuItem';
+import MenuItemCopy from './MenuItemCopy';
 import Loader from '../../ui/Loader';
 import Error from '../../ui/Error';
 import useMenu from './useMenu';
@@ -39,10 +39,10 @@ function MenuList() {
           </button>
         )}
       </div>
-      <div className="m-3 grid h-max w-11/12 grid-cols-1 justify-items-center gap-3 border-2 border-stone-400 p-2 md:justify-items-stretch xl:grid-cols-2">
+      <div className="m-3 flex h-max w-11/12 flex-wrap content-around justify-center gap-3 rounded-md border-2 border-stone-400 p-2 sm:justify-between">
         {filter === 'all'
           ? menu.map((menuItem) => (
-              <MenuItem
+              <MenuItemCopy
                 menuItem={menuItem}
                 key={menuItem.id}
                 isAdmin={isAuthenticated}
@@ -51,7 +51,7 @@ function MenuList() {
           : menu
               .filter((menuItem) => menuItem.menu_type === filter)
               .map((menuItem) => (
-                <MenuItem
+                <MenuItemCopy
                   menuItem={menuItem}
                   key={menuItem.id}
                   isAdmin={isAuthenticated}

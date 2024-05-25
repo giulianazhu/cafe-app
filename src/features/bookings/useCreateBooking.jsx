@@ -1,13 +1,13 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createBooking } from '../../services/apiClients';
+import { createBooking } from '../../services/apiBooking';
 
 export function useCreateBooking() {
   const queryClient = useQueryClient();
   const {
     isLoading: isBooking,
-    mutate,
-    isError,
-    error,
+    mutate: handleBooking,
+    isError: isBookingError,
+    error: bookingError,
   } = useMutation({
     mutationFn: createBooking,
     onSuccess: () => {
@@ -18,5 +18,5 @@ export function useCreateBooking() {
       console.error(err);
     },
   });
-  return { isBooking, mutate, isError, error };
+  return { isBooking, handleBooking, isBookingError, bookingError };
 }

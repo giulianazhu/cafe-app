@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getHomeInfo } from '../../services/apiClients';
+import { getHomeInfo } from '../../services/apiHomeInfo';
 
 function useHomeInfo() {
   const {

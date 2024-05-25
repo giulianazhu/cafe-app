@@ -2,12 +2,17 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import Booking from './pages/Booking';
-import Admin from './pages/Admin';
+import Admin from './pages/Login';
 import AppLayout from './pages/AppLayout';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
+import BookingDetails from './pages/BookingDetails';
+import useAdmin from './features/authentication/useAdmin';
+import Loader from './ui/Loader';
+import Login from './pages/Login';
+import ProtectedRoute from './features/authentication/ProtectedRoute';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -54,7 +59,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <QueryClientProvider client={queryClient}>
-          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+          <ReactQueryDevtools initialIsOpen={true} />
           <BrowserRouter>
             <Routes>
               <Route element={<AppLayout />}>
@@ -62,7 +67,10 @@ function App() {
                 <Route path="home" element={<Home />} />
                 <Route path="menu" element={<Menu />} />
                 <Route path="booking" element={<Booking />} />
-                <Route path="admin" element={<Admin />} />
+                <Route element={<ProtectedRoute />}>
+                  <Route path="bookingDetails" element={<BookingDetails />} />
+                </Route>
+                <Route path="login" element={<Login />} />
               </Route>
             </Routes>
           </BrowserRouter>

@@ -1,18 +1,16 @@
-import { useState } from 'react';
 import MenuList from '../features/menu/MenuList';
-import MenuFilter from '../features/menu/MenuFilter';
+import MenuListCopy from '../features/menu/MenuListCopy';
+import StyledHeadline from '../ui/StyledHeadline';
 
 function Menu() {
-  const [filter, setFilter] = useState('all');
-  function handleFilter(filterValue) {
-    setFilter(filterValue);
-  }
   return (
-    <main className="flex h-full flex-col items-center px-3 text-center">
-      <h1 className="m-1 p-2 text-2xl">Menu</h1>
-      <MenuFilter handleFilter={handleFilter} />
-      <MenuList filter={filter} />
-    </main>
+    <>
+      {/* relative for placing modalwindow */}
+      <main className="relative flex h-full flex-col items-center px-3 text-center">
+        <StyledHeadline className="m-1 p-2 text-2xl">Menu</StyledHeadline>
+        <MenuList />
+      </main>
+    </>
   );
 }
 

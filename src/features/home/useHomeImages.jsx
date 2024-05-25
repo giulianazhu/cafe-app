@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getHomeImg } from '../../services/apiClients';
+import { getHomeImg } from '../../services/apiHomeInfo';
 
 function useHomeImages() {
   const {
