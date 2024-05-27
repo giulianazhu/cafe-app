@@ -3,7 +3,7 @@ import { createAdmin } from '../../services/apiAdmin';
 
 export default function useSignup() {
   const {
-    isLoading,
+    isPending,
     mutate: handleSignUp,
     isError: isSignUpError,
     error: signUpError,
@@ -12,5 +12,5 @@ export default function useSignup() {
     onSuccess: () => console.log('Successfully signed up '),
     onError: (err) => console.error(err),
   });
-  return { isLoading, handleSignUp, isSignUpError, signUpError };
+  return { isPending, handleSignUp, isSignUpError, signUpError };
 }

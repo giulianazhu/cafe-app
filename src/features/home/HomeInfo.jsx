@@ -23,7 +23,7 @@ function HomeInfo() {
 export default HomeInfo;
 
 function Section({ children }) {
-  return <section className="my-2">{children}</section>;
+  return <section className="mb-3">{children}</section>;
 }
 
 function Headline({ children }) {

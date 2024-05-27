@@ -28,7 +28,7 @@ export default {
       'lg': '64rem', //1024
       'xl': '80rem', //1280
       '2xl': '96rem', //1536
-      'horizontal': {'raw': '(min-height: 23rem)'}
+      'hz': {'raw': '(orientation: landscape)'}
     },
       //
     },

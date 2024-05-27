@@ -35,6 +35,7 @@ export async function createBooking(bookingDetails) {
     console.error(error);
     throw new Error('Booking could not be created...');
   }
+  return data;
 }
 
 // EDIT BOOKING DATA
@@ -48,6 +49,7 @@ export async function editBooking(bookingDetails) {
     console.error(error);
     throw new Error('Booking could not be edited');
   }
+  return data;
 }
 
 // DELETE BOOKING DATA

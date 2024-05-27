@@ -1,33 +1,26 @@
-import { createPortal } from 'react-dom';
+export default function ModalWindow({ children }) {
+  return (
+    <Page>
+      <Wrapper>{children}</Wrapper>
+    </Page>
+  );
+}
 
-// function ModalWindow({ children }) {
-//   return createPortal(
-//     <div className="relative left-1/2 top-1/2 flex h-max w-[75vw] max-w-[27rem] -translate-x-1/2 -translate-y-1/2 flex-col rounded-md border-2 border-pink-100 bg-gray-100 p-3 text-black">
+// function Page({ children }) {
+//   return (
+//     <div className="fixed z-50 flex h-[100vh] w-full items-center justify-center bg-stone-900 opacity-[0.97]">
 //       {children}
-//     </div>,
-//     <div className=""></div>,
-//     document.body,
+//     </div>
 //   );
 // }
-
-const positionRef = document.getElementById('menupage');
-
-// function ModalWindow({ children }){
-//   return createPortal(
-//     <div className=''> { children } </div>, document.body
-//   )
-// }
-
-// function ModalWindow({ children }) {
-//   return createPortal(<div className=""> {children} </div>, document.body);
-// }
-
-function ModalWindow({ children }) {
+function Page({ children }) {
   return (
-    <div className="absolute flex h-full w-full items-start justify-center bg-stone-900 opacity-[0.97] ">
+    <div className="fixed inset-0 z-10 flex h-[100vh] w-full items-center justify-center bg-stone-900 opacity-[0.97]">
       {children}
     </div>
   );
 }
 
-export default ModalWindow;
+function Wrapper({ children }) {
+  return <div className="mb-12 w-11/12 max-w-96"> {children} </div>;
+}

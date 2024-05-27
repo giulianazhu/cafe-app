@@ -4,6 +4,8 @@ import useDeleteMenu from './useDeleteMenu';
 import MenuForm from './MenuForm';
 import { useState } from 'react';
 import DeleteForm from '../../ui/DeleteForm';
+import ModalWindow from '../../ui/ModalWindow';
+import Error from '../../ui/Error';
 
 function MenuItem({ menuItem, isAdmin }) {
   const { dish_name, price, ingredients, image, id } = menuItem;
@@ -19,6 +21,13 @@ function MenuItem({ menuItem, isAdmin }) {
   function handleDeleteForm() {
     setShowDelete(!showDelete);
   }
+
+  // if (isDeleteError)
+  //   return (
+  //     <ModalWindow>
+  //       <Error> {deleteError.message} </Error>
+  //     </ModalWindow>
+  //   );
 
   return (
     <div className="flex flex-col gap-3">
@@ -36,15 +45,21 @@ function MenuItem({ menuItem, isAdmin }) {
                 {onEdit ? 'Cancel' : 'Edit'}
               </ListButton>
               <ListButton handleClick={handleDeleteForm} disabled={isDeleting}>
-                Delete
+                {showDelete ? 'Cancel' : 'Delete'}
               </ListButton>
             </MenuItem.AdminPalette>
           )}
         </MenuItem.Box>
       </MenuItem.Container>
-      {showDelete && <DeleteForm id={id} handleDelete={handleDelete} />}
+      {showDelete && (
+        <DeleteForm
+          id={id}
+          handleDelete={handleDelete}
+          isDeleting={isDeleting}
+        />
+      )}
       {onEdit && (
-        <div className="flex justify-center xl:justify-stretch">
+        <div className="flex justify-center">
           <MenuForm
             menuItem={menuItem}
             toggleEdit={toggleEdit}
@@ -72,7 +87,7 @@ function Container({ children }) {
 function ImageWrap({ img }) {
   return (
     // <div className="max-h-[200px] min-h-[200px] max-w-80 lg:max-h-max lg:min-h-min">
-    <div className="h-48 w-80">
+    <div className="h-48 w-72 sm:w-80">
       <img src={img} alt="" className="h-full w-full object-cover" />
     </div>
   );

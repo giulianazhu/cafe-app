@@ -49,7 +49,7 @@ export default function Carousel({ images }) {
 function Responsive({ children }) {
   return (
     <div
-      className={`h-[60vw] w-full sm:m-5 sm:h-[55vw] sm:w-11/12 md:m-7 md:h-[50vw] md:w-5/6 lg:m-9 lg:h-[45vw] lg:w-3/4`}
+      className={`h-[60vw] w-full sm:m-2 sm:h-[55vw] sm:w-11/12 md:m-3 md:h-[50vw] md:w-5/6 lg:m-4 lg:h-[45vw] lg:w-3/4`}
     >
       {children}
     </div>

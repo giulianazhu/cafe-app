@@ -8,13 +8,17 @@ export default function ProtectedRoute() {
   if (isCheckingAdmin) return <Loader />;
   if (!isAdmin)
     return (
-      <Error>
-        Admin access only. Please click{' '}
-        <NavLink to="/login" className="underline decoration-solid">
-          HERE
-        </NavLink>{' '}
-        to log in.
-      </Error>
+      <div className="flex w-full items-center justify-center">
+        <div className="w-2/3 lg:w-1/2">
+          <Error>
+            {'Admin access only. Please click '}
+            <NavLink to="/login" className="underline decoration-solid">
+              HERE
+            </NavLink>
+            {' to log in.'}
+          </Error>
+        </div>
+      </div>
     );
   return <Outlet />;
 }

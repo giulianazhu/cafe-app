@@ -24,7 +24,13 @@ function MenuList() {
   }
 
   if (isLoading || isCheckingAdmin) return <Loader />;
-  if (isError) return <Error>{error.message}</Error>;
+
+  if (isError)
+    return (
+      <ModalWindow>
+        <Error>{error?.message}</Error>
+      </ModalWindow>
+    );
 
   return (
     <>
@@ -40,6 +46,9 @@ function MenuList() {
         )}
       </div>
       <div className="m-3 grid h-max w-11/12 grid-cols-1 justify-items-center gap-3 border-2 border-stone-400 p-2 md:justify-items-stretch xl:grid-cols-2">
+        {/* ADD MENU ITEM FORM below */}
+        {onAdd && <MenuForm toggleAdd={toggleAdd} />}
+        {/* MENU list items */}
         {filter === 'all'
           ? menu.map((menuItem) => (
               <MenuItem
@@ -58,11 +67,12 @@ function MenuList() {
                 />
               ))}
       </div>
-      {onAdd && (
+      {/* OLD version  */}
+      {/* {onAdd && (
         <ModalWindow>
           <MenuForm toggleAdd={toggleAdd} />
         </ModalWindow>
-      )}
+      )} */}
     </>
   );
 }

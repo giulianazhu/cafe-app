@@ -13,6 +13,7 @@ import useAdmin from './features/authentication/useAdmin';
 import Loader from './ui/Loader';
 import Login from './pages/Login';
 import ProtectedRoute from './features/authentication/ProtectedRoute';
+import { Toaster } from 'react-hot-toast';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -74,6 +75,29 @@ function App() {
               </Route>
             </Routes>
           </BrowserRouter>
+          <Toaster
+            position="top-center"
+            gutter={10}
+            containerStyle={{ margin: '8px' }}
+            toastOptions={{
+              success: {
+                duration: 3000,
+              },
+              error: {
+                duration: 5000,
+                iconTheme: {
+                  primary: '#831843',
+                },
+              },
+              style: {
+                fontSize: '1rem',
+                maxWidth: '30rem',
+                padding: '1rem 2rem',
+                backgroundColor: '#1c1917',
+                color: '#e7e5e4',
+              },
+            }}
+          />
         </QueryClientProvider>
       </ThemeProvider>
     </>

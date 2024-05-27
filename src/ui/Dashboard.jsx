@@ -1,8 +1,11 @@
 import { format } from 'date-fns';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import BookForm from '../features/bookings/BookForm';
 import useDeleteBooking from '../features/bookings/useDeleteBooking';
+import DeleteForm from './DeleteForm';
+import ModalWindow from './ModalWindow';
+import Error from './Error';
 
 export default function Dashboard({ data }) {
   const [query, setQuery] = useState('');
@@ -29,11 +32,7 @@ export default function Dashboard({ data }) {
       <Dashboard.Searchbar handleQuery={setQuery} />
       <Dashboard.List>
         {results.map((guest) => (
-          <Dashboard.Item
-            guest={guest}
-            key={guest.id}
-            // handleShowForm={handleShowForm}
-          /> // most logic here
+          <Dashboard.Item guest={guest} key={guest.id} />
         ))}
       </Dashboard.List>
     </Dashboard.Container>
@@ -112,12 +111,26 @@ function Item({ guest, handleShowForm }) {
 function Details({ guest }) {
   const { phone, email, notes } = guest;
   const [showForm, setShowForm] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
+
   const { isDeleting, handleDelete, isDeleteError, deleteError } =
     useDeleteBooking();
 
   function handleShowForm() {
     setShowForm(!showForm);
   }
+
+  function handleDeleteForm() {
+    setShowDelete(!showDelete);
+  }
+
+  // if (isDeleteError)
+  //   return (
+  //     <ModalWindow>
+  //       <Error>{deleteError.message}</Error>
+  //     </ModalWindow>
+  //   );
+
   return (
     <>
       <div className="flex list-none flex-col py-2">
@@ -125,10 +138,22 @@ function Details({ guest }) {
         <li>{`Email: ${email}`}</li>
         <li>{`Notes: ${notes}`}</li>
         <div className="space-x-2 self-end">
-          <ListButton onClick={() => handleShowForm()}>
-            {showForm ? 'Cancel' : 'Edit'}
-          </ListButton>
-          <ListButton onClick={() => handleDelete(guest.id)}>Delete</ListButton>
+          <div className="flex flex-col items-end">
+            <ListButton onClick={() => handleShowForm()}>
+              {showForm ? 'Cancel' : 'Edit'}
+            </ListButton>
+            {/* <ListButton onClick={() => handleDelete(guest.id)}>Delete</ListButton> */}
+            <ListButton onClick={() => handleDeleteForm()}>
+              {showDelete ? 'Cancel' : 'Delete'}
+            </ListButton>
+            {showDelete && (
+              <DeleteForm
+                handleDelete={handleDelete}
+                id={guest.id}
+                isDeleting={isDeleting}
+              />
+            )}
+          </div>
         </div>
         <div className="sm:self-center">
           {showForm && (

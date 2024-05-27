@@ -1,5 +1,4 @@
 import MenuList from '../features/menu/MenuList';
-import MenuListCopy from '../features/menu/MenuListCopy';
 import StyledHeadline from '../ui/StyledHeadline';
 
 function Menu() {
