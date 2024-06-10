@@ -1,19 +1,24 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Menu from './pages/Menu';
-import Booking from './pages/Booking';
-import Admin from './pages/Login';
-import AppLayout from './pages/AppLayout';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
-import BookingDetails from './pages/BookingDetails';
-import useAdmin from './features/authentication/useAdmin';
-import Loader from './ui/Loader';
-import Login from './pages/Login';
 import ProtectedRoute from './features/authentication/ProtectedRoute';
 import { Toaster } from 'react-hot-toast';
+import { lazy } from 'react';
+// import Home from './pages/Home';
+// import Menu from './pages/Menu';
+// import Booking from './pages/Booking';
+// import AppLayout from './pages/AppLayout';
+// import BookingDetails from './pages/BookingDetails';
+// import Login from './pages/Login';
+
+const AppLayout = lazy(() => import('./pages/AppLayout'));
+const Home = lazy(() => import('./pages/Home'));
+const Menu = lazy(() => import('./pages/Menu'));
+const Booking = lazy(() => import('./pages/Booking'));
+const BookingDetails = lazy(() => import('./pages/BookingDetails'));
+const Login = lazy(() => import('./pages/Login'));
 
 const queryClient = new QueryClient({
   defaultOptions: {
