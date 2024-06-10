@@ -20,20 +20,6 @@ const Menu = lazy(() => import('./pages/Menu'));
 const Booking = lazy(() => import('./pages/Booking'));
 const BookingDetails = lazy(() => import('./pages/BookingDetails'));
 const Login = lazy(() => import('./pages/Login'));
-import { lazy } from 'react';
-// import Home from './pages/Home';
-// import Menu from './pages/Menu';
-// import Booking from './pages/Booking';
-// import AppLayout from './pages/AppLayout';
-// import BookingDetails from './pages/BookingDetails';
-// import Login from './pages/Login';
-
-const AppLayout = lazy(() => import('./pages/AppLayout'));
-const Home = lazy(() => import('./pages/Home'));
-const Menu = lazy(() => import('./pages/Menu'));
-const Booking = lazy(() => import('./pages/Booking'));
-const BookingDetails = lazy(() => import('./pages/BookingDetails'));
-const Login = lazy(() => import('./pages/Login'));
 
 const queryClient = new QueryClient({
   defaultOptions: {
