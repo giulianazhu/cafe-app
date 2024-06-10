@@ -5,7 +5,8 @@ import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import ProtectedRoute from './features/authentication/ProtectedRoute';
 import { Toaster } from 'react-hot-toast';
-import { lazy } from 'react';
+import { Suspense, lazy } from 'react';
+import Loader from './ui/Loader';
 // import Home from './pages/Home';
 // import Menu from './pages/Menu';
 // import Booking from './pages/Booking';
@@ -67,18 +68,20 @@ function App() {
         <QueryClientProvider client={queryClient}>
           <ReactQueryDevtools initialIsOpen={true} />
           <BrowserRouter>
-            <Routes>
-              <Route element={<AppLayout />}>
-                <Route index element={<Navigate to="home" replace />} />
-                <Route path="home" element={<Home />} />
-                <Route path="menu" element={<Menu />} />
-                <Route path="booking" element={<Booking />} />
-                <Route element={<ProtectedRoute />}>
-                  <Route path="bookingDetails" element={<BookingDetails />} />
+            <Suspense fallback={<Loader />}>
+              <Routes>
+                <Route element={<AppLayout />}>
+                  <Route index element={<Navigate to="home" replace />} />
+                  <Route path="home" element={<Home />} />
+                  <Route path="menu" element={<Menu />} />
+                  <Route path="booking" element={<Booking />} />
+                  <Route element={<ProtectedRoute />}>
+                    <Route path="bookingDetails" element={<BookingDetails />} />
+                  </Route>
+                  <Route path="login" element={<Login />} />
                 </Route>
-                <Route path="login" element={<Login />} />
-              </Route>
-            </Routes>
+              </Routes>
+            </Suspense>
           </BrowserRouter>
           <Toaster
             position="top-center"

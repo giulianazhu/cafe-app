@@ -11,7 +11,7 @@ function Loader() {
 function Bar({ animation }) {
   return (
     <div
-      className={`h-1/6 w-1/12 ${animation} bg-stone-200 sm:w-[5%] lg:w-[3%]`}
+      className={`h-[15vh] w-1/12 ${animation} bg-stone-200 sm:w-[5vw] lg:w-[3vw]`}
     ></div>
   );
 }
