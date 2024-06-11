@@ -62,7 +62,7 @@ function Searchbar({ handleQuery }) {
 
 function List({ children }) {
   return (
-    <main className="h-max flex-auto rounded-md border-2 border-stone-400 p-1">
+    <main className="h-max w-11/12 flex-auto rounded-md border-2 border-stone-400 p-1">
       {children}
     </main>
   );
