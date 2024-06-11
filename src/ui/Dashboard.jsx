@@ -4,8 +4,6 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import BookForm from '../features/bookings/BookForm';
 import useDeleteBooking from '../features/bookings/useDeleteBooking';
 import DeleteForm from './DeleteForm';
-import ModalWindow from './ModalWindow';
-import Error from './Error';
 
 export default function Dashboard({ data }) {
   const [query, setQuery] = useState('');
@@ -40,13 +38,13 @@ export default function Dashboard({ data }) {
 }
 
 function Container({ children }) {
-  return <div className="flex flex-wrap">{children}</div>;
+  return <div className="flex flex-wrap p-3">{children}</div>;
 }
 
 function Searchbar({ handleQuery }) {
   return (
     <>
-      <div className="mx-3 my-1 flex w-full items-center space-x-3 p-1">
+      <div className="my-3 flex w-full items-center space-x-3">
         <label htmlFor="search" className="min-w-max text-lg">
           Search by name
         </label>
@@ -64,7 +62,7 @@ function Searchbar({ handleQuery }) {
 
 function List({ children }) {
   return (
-    <main className="m-3 h-max flex-auto rounded-md border-2 border-stone-400 p-1">
+    <main className="h-max flex-auto rounded-md border-2 border-stone-400 p-1">
       {children}
     </main>
   );
@@ -81,7 +79,7 @@ function Item({ guest, handleShowForm }) {
   }
 
   return (
-    <div className="mx-1 my-2 divide-y-2 divide-stone-700 rounded-md border-2 border-stone-700 p-3 text-stone-300">
+    <div className="my-2 divide-y-2 divide-stone-700 rounded-md border-2 border-stone-700 p-3 text-stone-300">
       <section className="flex items-center justify-between ">
         <div className="md: list-none sm:grid sm:flex-1 sm:grid-cols-[1fr_2fr]">
           <li>{`Name: ${name}`}</li>
