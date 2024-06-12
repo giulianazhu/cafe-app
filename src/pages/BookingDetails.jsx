@@ -3,7 +3,7 @@ import BookingDashboard from '../features/bookings/BookingDashboard';
 
 function BookingDetails() {
   return (
-    <div className="w-[100vw]">
+    <div className="w-full">
       <StyledHeadline>Bookings Details</StyledHeadline>
       <BookingDashboard />
     </div>

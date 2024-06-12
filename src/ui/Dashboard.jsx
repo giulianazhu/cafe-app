@@ -38,25 +38,23 @@ export default function Dashboard({ data }) {
 }
 
 function Container({ children }) {
-  return <div className="flex flex-wrap p-3">{children}</div>;
+  return <div className="m-auto flex w-11/12 flex-wrap">{children}</div>;
 }
 
 function Searchbar({ handleQuery }) {
   return (
-    <>
-      <div className="my-3 flex w-full items-center space-x-3">
-        <label htmlFor="search" className="min-w-max text-lg">
-          Search by name
-        </label>
-        <input
-          type="text"
-          id="search"
-          className="w-full flex-auto rounded-lg bg-stone-200 p-1 px-2 text-stone-900 focus:outline-none focus:ring-2 focus:ring-white"
-          onChange={(e) => handleQuery(e.target.value)}
-          autoFocus
-        />
-      </div>
-    </>
+    <div className="my-3 flex w-full flex-[0_1_450px] items-center space-x-3">
+      <label htmlFor="search" className="min-w-max text-lg">
+        Search by name
+      </label>
+      <input
+        type="text"
+        id="search"
+        className="w-full flex-auto rounded-lg bg-stone-300 p-1 px-2 text-stone-900 focus:outline-none focus:ring-2 focus:ring-white"
+        onChange={(e) => handleQuery(e.target.value)}
+        autoFocus
+      />
+    </div>
   );
 }
 
