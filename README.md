@@ -11,4 +11,4 @@ https://cafe-app-demo.netlify.app
 - Back-end, authentication & authorization using supabase.js
 - Styling using Tailwing.css and Material UI
 
-**P.S. Insert, update, and delete features has been temporarily disabled to maintain app integrity but they do work!!!**
+**P.S. Appreciated if you could use the "TEST" menu item to test update/delete feature**
