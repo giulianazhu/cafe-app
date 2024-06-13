@@ -38,6 +38,7 @@ function LoginForm() {
           required: 'Email is required',
         })}
         disabled={isLogging}
+        defaultValue={'guest@gmail.com'}
         className="mb-3 rounded-md"
       />
 
@@ -51,6 +52,7 @@ function LoginForm() {
         type="password"
         {...register('password', { required: 'Password is required' })}
         disabled={isLogging}
+        defaultValue={123123}
         className="mb-2 rounded-md"
       />
 

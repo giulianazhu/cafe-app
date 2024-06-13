@@ -110,7 +110,12 @@ function BookForm({ showForm, guest = {}, handleShowForm }) {
           )}
         </FormRow>
         <FormRow>
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">
+            Email{'  '}
+            <span className="text-xs text-stone-400">
+              (only for confirmation email)
+            </span>
+          </Label>
           <input
             type="email"
             id="email"

@@ -38,7 +38,7 @@ export default function Dashboard({ data }) {
 }
 
 function Container({ children }) {
-  return <div className="m-auto flex w-11/12 flex-wrap">{children}</div>;
+  return <div className="m-auto my-3 flex w-11/12 flex-wrap">{children}</div>;
 }
 
 function Searchbar({ handleQuery }) {
