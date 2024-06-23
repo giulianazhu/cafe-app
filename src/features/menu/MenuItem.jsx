@@ -4,8 +4,6 @@ import useDeleteMenu from './useDeleteMenu';
 import MenuForm from './MenuForm';
 import { useState } from 'react';
 import DeleteForm from '../../ui/DeleteForm';
-import ModalWindow from '../../ui/ModalWindow';
-import Error from '../../ui/Error';
 
 function MenuItem({ menuItem, isAdmin }) {
   const { dish_name, price, ingredients, image, id } = menuItem;
@@ -30,7 +28,7 @@ function MenuItem({ menuItem, isAdmin }) {
   //   );
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 text-center">
       <MenuItem.Container>
         <MenuItem.ImageWrap img={image} />
         <MenuItem.Box>
@@ -86,7 +84,6 @@ function Container({ children }) {
 
 function ImageWrap({ img }) {
   return (
-    // <div className="max-h-[200px] min-h-[200px] max-w-80 lg:max-h-max lg:min-h-min">
     <div className="h-48 w-72 sm:w-80">
       <img src={img} alt="" className="h-full w-full object-cover" />
     </div>

@@ -10,7 +10,7 @@ function MenuFilter({ handleFilter, filter, menu }) {
       <select
         name="menu_type"
         id=""
-        className="mb-3 border-2 border-stone-400 bg-stone-800 px-2 py-1 font-semibold text-stone-300 focus:outline-none"
+        className="rounded-md border-2 border-stone-400 bg-stone-800 pl-2 font-semibold text-stone-300 focus:outline-none"
         defaultValue={filter}
         onChange={(e) => handleFilter(e.target.value)}
       >

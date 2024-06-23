@@ -38,14 +38,14 @@ function MenuList() {
         <MenuFilter handleFilter={handleFilter} filter={filter} menu={menu} />
         {isAuthenticated && (
           <button
-            className="m-2 mb-3 rounded-md border-2 border-stone-400 px-2 py-1 font-light text-stone-300 focus:outline-none"
+            className="rounded-md border-2 border-stone-400 px-2 py-1 font-light text-stone-300 focus:outline-none"
             onClick={() => toggleAdd()}
           >
             Add menu item
           </button>
         )}
       </div>
-      <div className="m-3 grid h-max w-full grid-cols-1 justify-items-center gap-3 border-2 border-stone-700 p-2 md:justify-items-stretch xl:grid-cols-2">
+      <div className="my-3 grid h-max w-full grid-cols-1 justify-items-center gap-3 rounded-md border-2 border-stone-400 p-2 md:justify-items-stretch xl:grid-cols-2">
         {/* ADD MENU ITEM FORM below */}
         {onAdd && <MenuForm toggleAdd={toggleAdd} />}
         {/* MENU list items */}

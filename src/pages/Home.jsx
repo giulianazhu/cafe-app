@@ -3,7 +3,7 @@ import HomeImages from '../features/home/HomeImages';
 
 function Home() {
   return (
-    <div className="h-max w-full">
+    <div className="m-auto my-3 h-max w-11/12">
       <HomeImages />
       <HomeInfo />
     </div>
