@@ -61,7 +61,7 @@ function MenuForm({ onEdit, toggleEdit, toggleAdd, menuItem = {} }) {
 
   return (
     <form
-      className="h-11/12 rounded-md border-2 border-stone-400 p-2 text-stone-300"
+      className="h-11/12 rounded-md border-2 border-stone-400 p-2 text-center text-stone-300"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex justify-end">
